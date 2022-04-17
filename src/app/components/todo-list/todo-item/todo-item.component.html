@@ -1,7 +1,19 @@
-<hr />
-<li>
-  <h1>{{ todo.title }}</h1>
-  <h2>{{ todo.id }}</h2>
-  <button (click)="onEditTodo(todo)">Edit!</button>
-  <button (click)="onDeleteTodo(todo.id)">Delete!</button>
+<li
+  class="flex justify-between items-center bg-purple-100 mb-2 p-4 rounded-lg w-[90%] max-w-2xl mx-auto"
+>
+  <h1 class="text-2xl">{{ todo.title }}</h1>
+  <div class="buttons text-white flex justify-between space-x-4">
+    <button
+      class="font-bold bg-purple-300 hover:bg-purple-500 rounded-md p-2 sm:p-2"
+      (click)="onEditTodo(todo)"
+    >
+      <i class="material-icons">edit</i>
+    </button>
+    <button
+      class="font-bold bg-purple-300 hover:bg-purple-500 rounded-md p-2 sm:p-2 sm:text-sm"
+      (click)="onDeleteTodo(todo.id)"
+    >
+      <i class="material-icons">delete</i>
+    </button>
+  </div>
 </li>

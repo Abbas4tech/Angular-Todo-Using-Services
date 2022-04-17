@@ -16,7 +16,7 @@ export class TodosService {
     console.log(this.editTodo);
     if (this.editTodo) {
       this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
-      this.editTodo = null;
+      this.resetEditData();
     } else {
       this.todos.push(todoData);
       this.numberOfTodos++;

@@ -21,8 +21,9 @@
         type="submit"
         [disabled]="!AddTodo.valid"
         class="font-bold text-white disabled:text-black bg-purple-500 hover:bg-purple-700 rounded-md p-3 disabled:bg-purple-100 disabled:font-bold disabled:cursor-not-allowed"
-        >Add</Button
       >
+        {{ editTodoData ? "Edit" : "Add" }}
+      </Button>
       <button
         type="button"
         class="font-bold text-white disabled:text-black bg-purple-500 hover:bg-purple-700 rounded-md p-3 disabled:bg-purple-100 disabled:font-bold disabled:cursor-not-allowed"
