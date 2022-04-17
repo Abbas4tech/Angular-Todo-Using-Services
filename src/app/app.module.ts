@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormService } from './services/form.service';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FormService } from './services/form.service';
     CardComponent,
     HeaderComponent,
     FormComponent,
+    TodoListComponent,
+    TodoItemComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [FormService],

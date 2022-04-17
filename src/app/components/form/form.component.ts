@@ -13,16 +13,24 @@ export class FormComponent implements OnInit {
     private todoService: TodosService
   ) {}
 
+  editTodoData!: any;
+
   AddTodo!: FormGroup;
 
   ngOnInit(): void {
+    this.editTodoData = this.todoService.getEditTodoData();
+    console.log(this.editTodoData);
     this.AddTodo = new FormGroup({
-      title: new FormControl(null, [Validators.required]),
+      title: new FormControl(
+        this.editTodoData ? this.editTodoData.title : null,
+        [Validators.required]
+      ),
     });
   }
 
   onCancelForm() {
     this.formService.closeForm();
+    this.todoService.resetEditData();
   }
 
   onSubmitForm() {
