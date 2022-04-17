@@ -6,7 +6,6 @@ import { TodosService } from 'src/app/services/todos.service';
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent implements DoCheck {
-
   todoList!: { id: number; title: string }[];
 
   constructor(private todoService: TodosService) {}

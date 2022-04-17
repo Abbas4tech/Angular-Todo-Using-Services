@@ -13,7 +13,7 @@ export class FormComponent implements OnInit {
     private todoService: TodosService
   ) {}
 
-  editTodoData!: any;
+  editTodoData!: { id: number; title: string };
 
   AddTodo!: FormGroup;
 
@@ -37,5 +37,6 @@ export class FormComponent implements OnInit {
     this.AddTodo.value.id = Math.random();
     this.formService.closeForm();
     this.todoService.addTodo(this.AddTodo.value);
+    if (this.editTodoData) this.todoService.resetEditData();
   }
 }

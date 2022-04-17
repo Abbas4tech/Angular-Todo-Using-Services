@@ -11,8 +11,11 @@ export class TodosService {
   editTodo!: any;
 
   addTodo(todoData: { id: number; title: string }) {
-    const existedTodo = this.todos.find((todo: any) => todo.id === todoData.id);
-    if (!existedTodo) this.todos.push(todoData);
+    console.log(this.editTodo);
+    if (this.editTodo) {
+      this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
+      this.editTodo = null;
+    } else this.todos.push(todoData);
     console.log(todoData, this.todos);
   }
 
