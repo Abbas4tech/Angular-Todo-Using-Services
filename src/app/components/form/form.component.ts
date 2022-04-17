@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormService } from 'src/app/services/form.service';
+import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
 })
 export class FormComponent implements OnInit {
-  constructor(private formService: FormService) {}
+  constructor(
+    private formService: FormService,
+    private todoService: TodosService
+  ) {}
 
   AddTodo!: FormGroup;
 
@@ -23,7 +27,7 @@ export class FormComponent implements OnInit {
 
   onSubmitForm() {
     this.AddTodo.value.id = Math.random();
-    console.log(this.AddTodo.value);
     this.formService.closeForm();
+    this.todoService.addTodo(this.AddTodo.value);
   }
 }
