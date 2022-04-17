@@ -1,0 +1,35 @@
+<app-card>
+  <form action="" [formGroup]="AddTodo" (ngSubmit)="onSubmitForm()">
+    <label for="title" class="font-bold block mb-4 text-2xl">Title :</label>
+    <input
+      type="text"
+      class="block w-full p-3 outline-indigo-700"
+      name="todo"
+      id="todo"
+      formControlName="title"
+      required
+      #titleInput
+    />
+    <span
+      *ngIf="!AddTodo.get('title')?.valid && AddTodo.get('title')?.touched"
+      class="block my-2 text-red-900"
+      >Please enter valid title!</span
+    >
+
+    <section class="mt-4 space-x-4 flex justify-end">
+      <Button
+        type="submit"
+        [disabled]="!AddTodo.valid"
+        class="font-bold text-white disabled:text-black bg-purple-500 hover:bg-purple-700 rounded-md p-3 disabled:bg-purple-100 disabled:font-bold disabled:cursor-not-allowed"
+        >Add</Button
+      >
+      <button
+        type="button"
+        class="font-bold text-white disabled:text-black bg-purple-500 hover:bg-purple-700 rounded-md p-3 disabled:bg-purple-100 disabled:font-bold disabled:cursor-not-allowed"
+        (click)="onCancelForm()"
+      >
+        Cancel
+      </button>
+    </section>
+  </form>
+</app-card>
