@@ -8,6 +8,8 @@ export class TodosService {
     { id: Math.random(), title: 'Take a Bath' },
   ];
 
+  numberOfTodos: number = 1;
+
   editTodo!: any;
 
   addTodo(todoData: { id: number; title: string }) {
@@ -15,12 +17,16 @@ export class TodosService {
     if (this.editTodo) {
       this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
       this.editTodo = null;
-    } else this.todos.push(todoData);
+    } else {
+      this.todos.push(todoData);
+      this.numberOfTodos++;
+    }
     console.log(todoData, this.todos);
   }
 
   deleteTodo(todoId: number) {
     this.todos = this.todos.filter((todo: any) => todo.id !== todoId);
+    this.numberOfTodos--;
   }
 
   getTodos() {
