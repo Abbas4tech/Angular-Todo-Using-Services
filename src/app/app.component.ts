@@ -7,7 +7,7 @@ import { FormService } from './services/form.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, DoCheck {
-  
+
   constructor(private formService: FormService) {}
 
   formState!: boolean;
