@@ -3,16 +3,14 @@
     <label for="title" class="font-bold block mb-4 text-2xl">Title :</label>
     <input
       type="text"
-      class="block w-full p-3 outline-indigo-700"
+      class="block w-full p-2 outline-none border-2 border-purple-500 text-2xl focus:outline-none focus:border-purple-900 focus:bg-purple-200"
       name="todo"
       id="todo"
       formControlName="title"
       required
       #titleInput
     />
-    <span
-      *ngIf="!AddTodo.get('title')?.valid && AddTodo.get('title')?.touched"
-      class="block my-2 text-red-900"
+    <span *ngIf="!AddTodo.get('title')?.valid && AddTodo.get('title')?.touched"
       >Please enter valid title!</span
     >
 

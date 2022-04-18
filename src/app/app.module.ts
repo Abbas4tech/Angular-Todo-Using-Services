@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormService } from './services/form.service';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.component';
+import { TodosService } from './services/todos.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.co
     TodoItemComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
-  providers: [FormService],
+  providers: [FormService, TodosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
