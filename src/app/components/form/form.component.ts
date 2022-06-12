@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { todo } from 'src/app/model/app.model';
 import { FormService } from 'src/app/services/form.service';
 import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls:["./form.component.css"]
+  styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
   constructor(
@@ -14,7 +15,7 @@ export class FormComponent implements OnInit {
     private todoService: TodosService
   ) {}
 
-  editTodoData!: { id: number; title: string };
+  editTodoData!: todo | null;
 
   AddTodo!: FormGroup;
 

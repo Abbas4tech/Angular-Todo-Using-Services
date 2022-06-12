@@ -18,11 +18,9 @@ export class HeaderComponent implements DoCheck {
 
   onPressAdd() {
     this.formService.openForm();
-    console.log(this.formService);
   }
   ngDoCheck(): void {
     this.formState = this.formService.formIsOpen;
     this.numberOfTodos = this.todoService.numberOfTodos;
-    console.log(this.formState);
   }
 }

@@ -1,13 +1,14 @@
 import { TodosService } from 'src/app/services/todos.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormService } from 'src/app/services/form.service';
+import { todo } from 'src/app/model/app.model';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
 })
 export class TodoItemComponent implements OnInit {
-  @Input() todo!: { id: number; title: string };
+  @Input() todo!: todo;
 
   constructor(
     private todoService: TodosService,
@@ -18,7 +19,7 @@ export class TodoItemComponent implements OnInit {
     this.todoService.deleteTodo(id);
   }
 
-  onEditTodo(todoToBeEdit: { id: number; title: string }) {
+  onEditTodo(todoToBeEdit: todo) {
     this.formService.openForm();
     this.todoService.sendEditTodoData(todoToBeEdit);
   }

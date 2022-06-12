@@ -1,18 +1,17 @@
+import { todo } from './../model/app.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodosService {
-  todos: { id: number; title: string }[] = [
-    { id: Math.random(), title: 'Take a Bath' },
-  ];
+  todos: todo[] = [{ id: Math.random(), title: 'Take a Bath' }];
 
   numberOfTodos: number = 1;
 
-  editTodo!: any;
+  editTodo!: todo | null;
 
-  addTodo(todoData: { id: number; title: string }) {
+  addTodo(todoData: todo) {
     console.log(this.editTodo);
     if (this.editTodo) {
       this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
@@ -25,7 +24,7 @@ export class TodosService {
   }
 
   deleteTodo(todoId: number) {
-    this.todos = this.todos.filter((todo: any) => todo.id !== todoId);
+    this.todos = this.todos.filter((todo: todo) => todo.id !== todoId);
     this.numberOfTodos--;
   }
 
@@ -33,7 +32,7 @@ export class TodosService {
     return this.todos;
   }
 
-  sendEditTodoData(todoToBeEdit: { id: number; title: string }) {
+  sendEditTodoData(todoToBeEdit: todo) {
     this.editTodo = todoToBeEdit;
   }
 

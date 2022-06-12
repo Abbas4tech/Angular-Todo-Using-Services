@@ -1,4 +1,5 @@
 import { Component, DoCheck } from '@angular/core';
+import { todo } from 'src/app/model/app.model';
 import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
@@ -6,12 +7,11 @@ import { TodosService } from 'src/app/services/todos.service';
   templateUrl: './todo-list.component.html',
 })
 export class TodoListComponent implements DoCheck {
-  todoList!: { id: number; title: string }[];
+  todoList!: todo[];
 
   constructor(private todoService: TodosService) {}
 
   ngDoCheck(): void {
     this.todoList = this.todoService.getTodos();
-    console.log(this.todoList);
   }
 }
