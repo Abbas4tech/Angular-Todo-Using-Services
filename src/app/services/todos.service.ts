@@ -11,7 +11,7 @@ export class TodosService {
 
   editTodo!: todo | null;
 
-  addTodo(todoData: todo) {
+  addTodo(todoData: todo): void {
     console.log(this.editTodo);
     if (this.editTodo) {
       this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
@@ -23,24 +23,24 @@ export class TodosService {
     console.log(todoData, this.todos);
   }
 
-  deleteTodo(todoId: number) {
+  deleteTodo(todoId: number): void {
     this.todos = this.todos.filter((todo: todo) => todo.id !== todoId);
     this.numberOfTodos--;
   }
 
-  getTodos() {
+  getTodos(): todo[] {
     return this.todos;
   }
 
-  sendEditTodoData(todoToBeEdit: todo) {
+  sendEditTodoData(todoToBeEdit: todo): void {
     this.editTodo = todoToBeEdit;
   }
 
-  resetEditData() {
+  resetEditData(): void {
     this.editTodo = null;
   }
 
-  getEditTodoData() {
+  getEditTodoData(): todo | null {
     return this.editTodo;
   }
 

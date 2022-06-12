@@ -4,7 +4,9 @@ import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
   selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html',
+  template: `<ul id="todos" class="mt-4 w-full" *ngFor="let todo of todoList">
+    <app-todo-item [todo]="todo"></app-todo-item>
+  </ul>`,
 })
 export class TodoListComponent implements DoCheck {
   todoList!: todo[];

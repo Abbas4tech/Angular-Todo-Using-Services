@@ -4,16 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FormService {
-  
   formIsOpen = false;
 
   constructor() {}
 
-  openForm() {
+  openForm(): void {
     this.formIsOpen = true;
   }
 
-  closeForm() {
+  closeForm(): void {
     this.formIsOpen = false;
   }
 }
