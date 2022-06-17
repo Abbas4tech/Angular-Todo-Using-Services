@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class TodosService {
   todos: todo[] = [{ id: Math.random(), title: 'Take a Bath' }];
 
-  numberOfTodos: number = 1;
+  numberOfTodos: number = this.todos.length;
 
   editTodo!: todo | null;
 
