@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnDestroy } from '@angular/core';
 import { FormService } from 'src/app/services/form.service';
 import { TodosService } from 'src/app/services/todos.service';
 
@@ -6,8 +6,8 @@ import { TodosService } from 'src/app/services/todos.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements DoCheck {
-  formState!: boolean;
+export class HeaderComponent implements DoCheck, OnDestroy {
+  formState = false;
 
   numberOfTodos!: number;
 
@@ -17,10 +17,14 @@ export class HeaderComponent implements DoCheck {
   ) {}
 
   onPressAdd() {
-    this.formService.openForm();
+    this.formService.formState.emit(true);
   }
   ngDoCheck(): void {
-    this.formState = this.formService.formIsOpen;
+    this.formService.formState.subscribe((v) => (this.formState = v));
     this.numberOfTodos = this.todoService.numberOfTodos;
+  }
+
+  ngOnDestroy(): void {
+    this.formService.formState.unsubscribe();
   }
 }

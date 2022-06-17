@@ -1,18 +1,9 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormService {
-  formIsOpen = false;
-
   constructor() {}
-
-  openForm(): void {
-    this.formIsOpen = true;
-  }
-
-  closeForm(): void {
-    this.formIsOpen = false;
-  }
+  formState = new EventEmitter<boolean>();
 }

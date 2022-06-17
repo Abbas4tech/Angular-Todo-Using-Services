@@ -20,7 +20,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEditTodo(todoToBeEdit: todo) {
-    this.formService.openForm();
+    this.formService.formState.emit(true);
     this.todoService.sendEditTodoData(todoToBeEdit);
   }
 

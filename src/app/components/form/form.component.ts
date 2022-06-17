@@ -21,7 +21,6 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.editTodoData = this.todoService.getEditTodoData();
-    console.log(this.editTodoData);
     this.AddTodo = new FormGroup({
       title: new FormControl(
         this.editTodoData ? this.editTodoData.title : null,
@@ -31,13 +30,13 @@ export class FormComponent implements OnInit {
   }
 
   onCancelForm() {
-    this.formService.closeForm();
+    this.formService.formState.emit(false);
     this.todoService.resetEditData();
   }
 
   onSubmitForm() {
     this.AddTodo.value.id = Math.random();
-    this.formService.closeForm();
+    this.formService.formState.emit(false);
     this.todoService.addTodo(this.AddTodo.value);
     if (this.editTodoData) this.todoService.resetEditData();
   }

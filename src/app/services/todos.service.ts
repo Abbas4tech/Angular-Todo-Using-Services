@@ -12,7 +12,6 @@ export class TodosService {
   editTodo!: todo | null;
 
   addTodo(todoData: todo): void {
-    console.log(this.editTodo);
     if (this.editTodo) {
       this.todos.splice(this.todos.indexOf(this.editTodo), 1, todoData);
       this.resetEditData();
@@ -20,7 +19,6 @@ export class TodosService {
       this.todos.push(todoData);
       this.numberOfTodos++;
     }
-    console.log(todoData, this.todos);
   }
 
   deleteTodo(todoId: number): void {
